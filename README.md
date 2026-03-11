@@ -2,6 +2,7 @@
 # 🫂 Integrantes 
 - Juan Andres Vallejo 
 - Jeronimo Toro
+- Julian Caballero
 
 ## 📋 Descripción
 
