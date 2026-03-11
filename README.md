@@ -13,6 +13,12 @@ Este proyecto tiene como objetivo crear un programa con un menú infinito con la
 4. Promedio n números
 (Validar lectura correcta de datos y posibles errores)
 
+## 📚 TO-DO: 
+- Averiguar restricción numero maximo
+- Consultar math.sqrt
+- Terminar diapositiva
+- Consultar caracteres de escape
+
 ## 💻 Diapositiva (WIP):
 
 https://www.canva.com/design/DAHDpW_LLN0/mlku-yYaMVqkzr3BheLnWw/edit?utm_content=DAHDpW_LLN0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
