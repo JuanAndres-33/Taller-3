@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class programa{
+public class programa {
     public static void main(String[] args) {
 
         int opcion = 0;
@@ -12,8 +12,11 @@ public class programa{
         long a = 0;
         long b = 1;
         long resultadoFibo = 0;
+        long nPrimo = 0;
+        long numeroPrim = 2;
+        long contadorPrim = 0;
+        long primo = 0;
         Scanner sc = new Scanner(System.in);
-
 
         do {
 
@@ -31,15 +34,15 @@ public class programa{
                 case 1:
                     System.out.println("Ingrese el número de Fibonacci que desea: ");
                     nFibonacci = sc.nextInt();
-                    
-                    if (nFibonacci == 0){
+
+                    if (nFibonacci == 0) {
                         resultadoFibo = 0;
 
-                    } else if (nFibonacci == 1){
+                    } else if (nFibonacci == 1) {
                         resultadoFibo = 1;
-                    }else {     
+                    } else {
 
-                        for (int i = 2; i <= nFibonacci; i++){
+                        for (int i = 2; i <= nFibonacci; i++) {
                             resultadoFibo = a + b;
                             a = b;
                             b = resultadoFibo;
@@ -49,7 +52,27 @@ public class programa{
                     break;
 
                 case 2:
-                    System.out.println("2");
+                    System.out.println("Ingrese el numero primo que desea conocer: ");
+                    nPrimo = sc.nextLong();
+
+                    while (contadorPrim < nPrimo) {
+                        boolean esPrimo = true;
+
+                        for (long i = 2; i <= Math.sqrt(numeroPrim); i++) {
+                            if (numeroPrim % i == 0) {
+                                esPrimo = false;
+                                break;
+
+                            }
+                        }
+                        if (esPrimo) {
+                            contadorPrim++;
+                            primo = numeroPrim;
+                        }
+                        numeroPrim++;
+                    }
+                    System.out.println("El primo número " + nPrimo + " es: " + primo);
+
                     break;
 
                 case 3:
@@ -66,7 +89,7 @@ public class programa{
 
                         suma = suma + numero;
                     }
-                    
+
                     promedio = suma / n;
 
                     System.out.println("El promedio es: " + promedio);
@@ -76,7 +99,7 @@ public class programa{
                     System.out.println("Opcion equivocada, vuelve a ingresar la opcion porfavor");
                     break;
             }
-            
+
         } while (opcion < 1 | opcion > 4);
     }
 }
