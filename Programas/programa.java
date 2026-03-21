@@ -201,7 +201,7 @@ public class programa {
 
                     while (!entradaValida) {
                         try {
-                            n = sc.nextInt();
+                            n = sc.nextDouble();
                             sc.nextLine();
                             entradaValida = true;
                         } catch (Exception e) {
@@ -218,7 +218,7 @@ public class programa {
 
                         while (!entradaValida) {
                             try {
-                                numero = sc.nextInt();
+                                numero = sc.nextDouble();
                                 sc.nextLine();
                                 entradaValida = true;
                             } catch (Exception e) {
