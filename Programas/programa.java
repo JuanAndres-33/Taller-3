@@ -246,5 +246,6 @@ public class programa {
             }
 
         } while (opcion < 1 || opcion > 5);
+        sc.close();
     }
 }
