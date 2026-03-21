@@ -16,6 +16,12 @@ public class programa {
         long numeroPrim = 2;
         long contadorPrim = 0;
         long primo = 0;
+        double aCuad = 0;
+        double bCuad = 0;
+        double cCuad = 0;
+        double discrm = 0;
+        double raizCuadPos = 0;
+        double raizCuadNeg = 0;
         boolean entradaValida = false; //usada para capturar errores en cada case
         Scanner sc = new Scanner(System.in);
 
@@ -113,6 +119,79 @@ public class programa {
 
                 case 3:
                     System.out.println("Vamos a calcular la raices de una ecuacion cuadratica, ");
+                    System.out.println("Primero vamos a requerir los número a, b y c para calcularla");
+
+                    System.out.println("Primero, ingrese el número a: ");
+
+                    entradaValida = false;
+
+                    while (!entradaValida) {
+                        try {
+                            aCuad = sc.nextDouble();
+                            sc.nextLine();
+                            entradaValida = true;
+                        } catch (Exception e) {
+                            System.out.println("Error, debe ingresar un número valido");
+                            sc.nextLine();
+                            System.out.println("Ingrese nuevamente el numero a: ");
+                        }
+                    }
+
+                    System.out.println("Segundo, ingrese el número b: ");
+
+                    entradaValida = false;
+
+                    while (!entradaValida) {
+                        try {
+                            bCuad = sc.nextDouble();
+                            sc.nextLine();
+                            entradaValida = true;
+                        } catch (Exception e) {
+                            System.out.println("Error, debe ingresar un número valido");
+                            sc.nextLine();
+                            System.out.println("Ingrese nuevamente el numero b: ");
+                        }
+                    }
+
+                    System.out.println("por ultimo, ingrese el número c: ");
+
+                    entradaValida = false;
+
+                    while (!entradaValida) {
+                        try {
+                            cCuad = sc.nextDouble();
+                            sc.nextLine();
+                            entradaValida = true;
+                        } catch (Exception e) {
+                            System.out.println("Error, debe ingresar un número valido");
+                            sc.nextLine();
+                            System.out.println("Ingrese nuevamente el numero c: ");
+                        }
+                    }
+
+                    if (aCuad == 0) {
+                        System.out.println("El número a es igual a cero, por ende, esta ecuacion es una ecuacion lineal");
+                        break;
+                    }
+
+                    System.out.println("\nPerfecto, ahora vamos a calcular el discriminante");
+                    discrm = (Math.pow(bCuad, 2) - (4 * aCuad * cCuad));
+                    System.out.println("El discriminante nos dio como resultado: " + discrm);
+                    System.out.println("Ahora, vamos a interpretar este resultado: ");
+
+                    if (discrm < 0) {
+                        System.out.println("El discriminante es menor a cero, por ende, La ecuación no tiene raíces reales");
+                    }else if (discrm == 0) {
+                        System.out.println("El discriminante es igual a cero por ende solo existe una raiz real");
+                        raizCuadPos = (-bCuad + Math.sqrt(discrm) / (2 * aCuad));
+                        System.out.println("El resultado de la ecuacion cuadratica con los números que ingresaste es: " + raizCuadPos); 
+                    }else{
+                        System.out.println("El discriminante es mayor que cero, por ende, existen 2 raices reales");
+                        raizCuadPos = (-bCuad + Math.sqrt(discrm) / (2 * aCuad));
+                        raizCuadNeg = (-bCuad - Math.sqrt(discrm) / (2 * aCuad));
+                        System.out.println("El resultado de la raiz positiva es: " + raizCuadPos);
+                        System.out.println("\nEl resultado de la raiz negativa es: " + raizCuadNeg);
+                    }  
                     break;
 
                 case 4:
