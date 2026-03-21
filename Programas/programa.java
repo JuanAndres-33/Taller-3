@@ -117,11 +117,37 @@ public class programa {
 
                 case 4:
                     System.out.println("¿Cuantos numeros desea ingresar?: ");
-                    n = sc.nextInt();
+                    
+                    entradaValida = false;
+
+                    while (!entradaValida) {
+                        try {
+                            n = sc.nextInt();
+                            sc.nextLine();
+                            entradaValida = true;
+                        } catch (Exception e) {
+                            System.out.println("Error, debe ingresar un número entero valido");
+                            sc.nextLine();
+                            System.out.println("Ingrese nuevamente la cantidad de números para que le saquemos el promedio");
+                        }     
+                    }
 
                     for (int i = 1; i <= n; i++) {
                         System.out.println("Ingrese el numero " + i + ": ");
-                        numero = sc.nextInt();
+
+                        entradaValida = false;
+
+                        while (!entradaValida) {
+                            try {
+                                numero = sc.nextInt();
+                                sc.nextLine();
+                                entradaValida = true;
+                            } catch (Exception e) {
+                                System.out.println("Error, debes ingresar un numero entero valido: ");
+                                sc.nextLine();
+                                System.out.println("Ingresa nuevamente el número");
+                            }
+                        }
 
                         suma = suma + numero;
                     }
