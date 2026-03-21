@@ -16,44 +16,81 @@ public class programa {
         long numeroPrim = 2;
         long contadorPrim = 0;
         long primo = 0;
+        boolean entradaValida = false; //usada para capturar errores en cada case
         Scanner sc = new Scanner(System.in);
 
         do {
 
-            System.out.println("Escoge una opcion: ");
+            System.out.println("\nEscoge una opcion: ");
 
-            System.out.println("1: sumar n-avo número de fibonacci");
+            System.out.println("\n1: sumar n-avo número de fibonacci");
             System.out.println("2: n-avo número primo");
             System.out.println("3: Raices ecuacion cuadratica");
             System.out.println("4: Promedio n-números");
+            System.out.println("5: Salir del sistema");
 
-            opcion = sc.nextInt();
-            sc.nextLine();
+           try {
+                opcion = sc.nextInt();
+                sc.nextLine();
+            } catch (Exception e) {
+                System.out.println("Error: Debe ingresar un número entero válido.");
+                sc.nextLine(); 
+                opcion = 0;
+            }
 
             switch (opcion) {
                 case 1:
-                    System.out.println("Ingrese el número de Fibonacci que desea: ");
-                    nFibonacci = sc.nextInt();
+                        System.out.println("Ingrese el número de Fibonacci que desea: ");
 
-                    if (nFibonacci == 0) {
-                        resultadoFibo = 0;
+                        entradaValida = false;
 
-                    } else if (nFibonacci == 1) {
-                        resultadoFibo = 1;
-                    } else {
-
-                        for (int i = 2; i <= nFibonacci; i++) {
-                            resultadoFibo = a + b;
-                            a = b;
-                            b = resultadoFibo;
+                        while (!entradaValida) {
+                            try {
+                                nFibonacci = sc.nextInt();
+                                sc.nextLine();
+                                entradaValida = true; 
+                            } catch (Exception e) {
+                                System.out.println("Error: Debe ingresar un número entero válido.");
+                                sc.nextLine(); 
+                                System.out.println("Ingrese nuevamente el número de Fibonacci: ");
+                            }
                         }
-                    }
-                    System.out.println("El Fibonacci es: " + resultadoFibo);
-                    break;
+
+                        if (nFibonacci == 0) {
+                            resultadoFibo = 0;
+
+                        } else if (nFibonacci == 1) {
+                            resultadoFibo = 1;
+
+                        } else {
+
+                            for (int i = 2; i <= nFibonacci; i++) {
+                                resultadoFibo = a + b;
+                                a = b;
+                                b = resultadoFibo;
+                            }
+                        }
+
+                        System.out.println("El Fibonacci es: " + resultadoFibo);
+                        break;
 
                 case 2:
                     System.out.println("Ingrese el numero primo que desea conocer: ");
-                    nPrimo = sc.nextLong();
+
+                    entradaValida = false;
+
+                    while (!entradaValida) {
+                        try {
+                            nPrimo = sc.nextLong();
+                            sc.nextLine();
+                            entradaValida = true;
+                            
+                        } catch (Exception e) {
+                            System.out.println("Error, debe ingresar un número entero valido");
+                            sc.nextLine();
+                            System.out.println("Ingrese nuevamente el número primo");
+                        } 
+                    }
 
                     while (contadorPrim < nPrimo) {
                         boolean esPrimo = true;
@@ -62,9 +99,9 @@ public class programa {
                             if (numeroPrim % i == 0) {
                                 esPrimo = false;
                                 break;
-
                             }
                         }
+
                         if (esPrimo) {
                             contadorPrim++;
                             primo = numeroPrim;
@@ -72,11 +109,10 @@ public class programa {
                         numeroPrim++;
                     }
                     System.out.println("El primo número " + nPrimo + " es: " + primo);
-
                     break;
 
                 case 3:
-                    System.out.println("3");
+                    System.out.println("Vamos a calcular la raices de una ecuacion cuadratica, ");
                     break;
 
                 case 4:
@@ -95,11 +131,15 @@ public class programa {
                     System.out.println("El promedio es: " + promedio);
                     break;
 
+                case 5:
+                    System.out.println("gracias por usar el programa, que tenga un buen día");
+                    break;
+
                 default:
                     System.out.println("Opcion equivocada, vuelve a ingresar la opcion porfavor");
                     break;
             }
 
-        } while (opcion < 1 | opcion > 4);
+        } while (opcion < 1 || opcion > 5);
     }
 }
