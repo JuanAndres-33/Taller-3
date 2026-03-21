@@ -49,9 +49,10 @@ public class juegoAdivinar {
         }else{
             numeroSecreto = (int)(Math.random() * (mMaximo - nMinimo + 1)) + nMinimo;
 
+            System.out.println("Perfecto, iniciemos el juego, el rango del número secreto estara dento del rango que escogiste");
+
             while (true) {
-                System.out.println("Perfecto, iniciemos el juego, el rango del número secreto estara dento del rango que escogiste");
-                System.out.println("ingresa el número que crees que es: ");
+                System.out.println("\ningresa el número que crees que es: ");
 
                 entradaValida = false;
 
@@ -67,16 +68,18 @@ public class juegoAdivinar {
                     }
                 }
 
-                while (intento != numeroSecreto) {
-                    if (intento > numeroSecreto) {
-                        System.out.println("");
-                        
-                    }
+                if (intento > numeroSecreto) {
+                    System.out.println("El número que ingresaste es mayor que el número secreto");
+                    
+                }else if (intento < numeroSecreto) {
+                    System.out.println("El número que ingresaste es menor que el número a adivinar");
+                
+                }else{
+                    System.out.println("Adivinaste el número secreto, felicidades!!");
+                    break;
                 }
-
             }
-
-
         }
+        sc.close();
     }
 }
