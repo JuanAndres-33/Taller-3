@@ -1,11 +1,25 @@
 import java.util.Scanner;
 
 public class tablaMultiplicar {
- public static void main(String[] args) {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         
-        System.out.print("Ingrese un número: ");
-        int numero = sc.nextInt();
+        int numero = 0;
+        boolean entradaValida = false;
+
+        while (!entradaValida) {
+            try {
+                System.out.print("Ingrese un número entero: ");
+                numero = sc.nextInt();
+                sc.nextLine();
+                entradaValida = true;
+            } catch (Exception e) {
+                System.out.println("Ingrese un entero valido");
+                sc.nextLine();
+                System.out.println("\nVuelve a ingresar el numero porfavor: ");
+            }
+
+        }
 
         System.out.println("Tabla de multiplicar del " + numero + ":");
 
